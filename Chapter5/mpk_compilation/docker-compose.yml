@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  tegfig:
+    image: marius311/mpk_compilation
+    build: .
+    volumes:
+     - "./notebooks:/home/cosmo/notebooks"
+     - "./dat:/home/cosmo/notebooks/dat-volume"
+     - "./matplotlibrc:/home/cosmo/.config/matplotlib/matplotlibrc"
+    ports: 
+     - "${PORT:-8888}:${PORT:-8888}"
+    hostname: localhost
+    environment:
+     - PORT=${PORT:-8888}
